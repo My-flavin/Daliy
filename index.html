@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F8FAFC">
+    <title>微小胜利 — 每完成一件小事，都是一次进步</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="pointer-glow" aria-hidden="true"></div>
+    <main class="app">
+      <header class="header">
+        <p class="eyebrow">DAILY PROGRESS <span aria-hidden="true">/</span> 每日进度</p>
+        <h1>把每一天，<span class="title-line">变成进度</span></h1>
+        <p class="subtitle">让每个小目标，都有清晰进展。</p>
+      </header>
+
+      <section class="progress-section" aria-labelledby="progress-title">
+        <div class="progress-heading">
+          <h2 id="progress-title">今日完成进度</h2>
+          <span class="progress-count" id="progress-count">已完成 0 / 0 项</span>
+        </div>
+        <div class="dashboard">
+          <div
+            class="progress-ring"
+            id="progress-ring"
+            role="progressbar"
+            aria-label="今日完成进度"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div class="progress-ring-center">
+              <span class="progress-percentage" id="progress-percentage">0%</span>
+              <span class="progress-caption">已完成</span>
+            </div>
+          </div>
+          <div class="statistics" aria-label="任务统计">
+            <div class="statistic">
+              <span class="statistic-label">总任务数</span>
+              <span class="statistic-value" id="total-count">0</span>
+            </div>
+            <div class="statistic">
+              <span class="statistic-label">已完成</span>
+              <span class="statistic-value" id="completed-count">0</span>
+            </div>
+            <div class="statistic">
+              <span class="statistic-label">待完成</span>
+              <span class="statistic-value" id="remaining-count">0</span>
+            </div>
+          </div>
+        </div>
+        <p class="progress-empty" id="progress-empty">今天，从一件小事开始吧。</p>
+        <div
+          class="progress-track"
+          id="progress-bar"
+          role="progressbar"
+          aria-label="任务完成比例"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span class="progress-fill" id="progress-fill"></span>
+        </div>
+        <p class="celebration-message" id="celebration-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="trend-section" aria-labelledby="trend-title">
+        <div class="trend-heading">
+          <h2 id="trend-title">近 7 天完成趋势</h2>
+          <span class="trend-unit">每日完成项</span>
+        </div>
+        <ul class="trend-chart" id="trend-chart" aria-label="近 7 天每日完成任务数量"></ul>
+        <p class="trend-note" id="trend-note">从今天起记录新完成的任务；此前的任务没有完成时间，因此不会补录历史数据。</p>
+      </section>
+
+      <section class="todo-section" aria-labelledby="tasks-title">
+        <form class="add-form" id="add-form">
+          <label class="visually-hidden" for="task-input">添加一项待办任务</label>
+          <input
+            id="task-input"
+            name="task"
+            type="text"
+            placeholder="今天想完成什么小事？"
+            maxlength="120"
+            autocomplete="off"
+            required
+          >
+          <button class="add-button" type="submit">添加任务</button>
+        </form>
+
+        <div class="list-heading">
+          <h2 id="tasks-title">我的任务</h2>
+          <div class="filters" role="group" aria-label="筛选任务">
+            <span class="filter-indicator" aria-hidden="true"></span>
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">待完成</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">已完成</button>
+          </div>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-label="任务列表"></ul>
+        <div class="empty-state" id="empty-state" hidden>
+          <p>今天，从一件小事开始吧</p>
+          <button class="empty-action" id="empty-action" type="button">添加第一项任务</button>
+        </div>
+        <p class="no-matches" id="no-matches" hidden>这个筛选下还没有任务</p>
+        <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="achievements-section" id="achievements-section" aria-labelledby="achievements-title" hidden>
+        <h2 id="achievements-title">我的成就</h2>
+        <ul class="achievement-list" id="achievement-list"></ul>
+      </section>
+
+      <footer>每一点进步，都值得被看见。</footer>
+    </main>
+  </body>
+</html>
